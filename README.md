@@ -2,9 +2,9 @@
 <img src="VideoTube.svg" width="400"></a></p>
 
 
-# 📑 Database e Web Programming - hw1
+# 📑 Database e Web Programming - hw2
  ## 🌘 Introduzione
- Repository del primo homework di Database e Web programming 2020/2021 modulo Web programming
+ Repository del secondo homework di Database e Web programming 2020/2021 modulo Web programming
  ## ✏️ Concept
  Vorrei realizzare una piattaforma simile agli ormai popolarissimi YouTube e Twitch che permetta agli utenti di usufruire dei contenuti creati dai loro artisti preferiti.
  Gli utenti premium possono abbonarsi o meno a un Creator così da supportarlo. Concettualmente parte dei fondi va a [treedom](https://www.treedom.net) 🌳.
