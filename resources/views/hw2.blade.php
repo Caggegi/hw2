@@ -39,7 +39,6 @@
                     <div>
                         <input type='text' placeholder='Name' id='current_name'></input>
                         <input type='text' placeholder='Email' id='current_description'></input>
-                        <?php
                           @if (Session::get("hash", "default") === "default")
                             //reindirizza al login
                           @else
@@ -54,7 +53,6 @@
                               //reindirizza alla creazione dell'abbonamento
                             @endif
                           @endif
-                        ?>
                     </div>
                 </div>
                 <h2 class="desktop">Seleziona</h2>

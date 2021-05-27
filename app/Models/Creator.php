@@ -52,8 +52,8 @@ class Creator extends Authenticatable
       return $this->hasMany("Premium");
     }
 
-    public function spectators(){
-      return $this->belongsToMany("Spectators");
+    public function follows(){
+      return $this->hasMany("Follow");
     }
 
 }

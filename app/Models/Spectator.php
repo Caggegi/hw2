@@ -48,8 +48,8 @@ class Spectator extends Authenticatable
       return $this->hasOne("Premium");
     }
 
-    public function creators(){
-      return $this->belongsToMany("Creator");
+    public function follows(){
+      return $this->hasMany("Follow");
     }
 
 }
