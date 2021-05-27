@@ -1,0 +1,636 @@
+body{
+    background-color: #151515;
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    color: #fff;
+    padding: 0px;
+}
+
+header{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px black;
+}
+
+header div#background{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+}
+
+header div#info{
+    position: relative;
+    cursor: pointer;
+}
+
+header div#search{
+    background-color: #fff;
+    display: flex;
+    width: 50%;
+    height: 6vh;
+    padding: 2px;
+    justify-content: space-between;
+    align-items: center;
+    color: #424242;
+    border-radius: 10px;
+    z-index: 3;
+}
+
+header div#search img{
+    height: 3.5vh;
+    width: 3.5vh;
+    margin-right: 16px;
+}
+
+header div#search input#search{
+    width: 90%;
+    font-weight: bold;
+    font-style: normal;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-left: 16px;
+    border: 0px;
+}
+
+header div#search input:focus{
+    outline: none;
+}
+
+header div#account{
+    font-style: normal;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: absolute;
+    bottom: -20vh;
+    right: -23vw;
+    text-align: right;
+}
+
+header div#account img{
+    height: 10vh;
+    width: 10vh;
+    margin-left: 8px;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+header div#overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    height: 40vh;
+    background-color: rgba(0,0,0,0.6);
+}
+
+/*navigation*/
+
+nav{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    margin-right: 16px;
+    margin-bottom: 0px;
+    margin-top: 2px;
+    z-index: 0;
+    width: 20%;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    background-color: #101010;
+    flex-grow: 1;
+}
+
+nav a{
+    text-decoration: none;
+}
+
+nav h4{
+    font-size: 1rem;
+}
+
+nav img{
+    height: 5vh;
+    margin-right: 8px;
+}
+
+nav div.nav_button{
+    width: 100%;
+    padding: 2px 0px 2px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: -2px;
+    color: white;
+}
+
+nav div.nav_button:hover{
+    color: #101010;
+    font-style: oblique;
+    background-color: rgb(100, 255, 0);
+    cursor: pointer;
+}
+
+div#titolo_iscrizioni, div#titolo_iscrizioni:hover{
+  color: #101010;
+  font-style: normal;
+  background-color: white;
+  cursor: not-allowed;
+}
+
+div#sub_container div.subscription{
+    display: flex;
+    align-items: center;
+    padding:8px;
+    justify-content: flex-start;
+}
+div#sub_container div.subscription img{
+    background-color: rgb(26, 26, 26);
+    margin: 8px;
+    border-radius: 100%;
+    border: 2px solid rgb(100, 255, 0);
+}
+
+div#main{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/*section principale*/
+
+div#main article#video-frame{
+    width: 80%;
+}
+
+div#main article#video-frame h2{
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1.8rem;
+}
+
+div.show-case{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-bottom: 10vh;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover{
+    cursor:pointer;
+}
+
+.card img{
+    width: 300px;
+    height: calc(300px*9/16);
+}
+
+div.show-case div.card div img{
+    height: 24px;
+    width: 24px;
+    margin: 2px;
+}
+
+.card h5, .card p{
+    margin: 4px;
+    font-family: 'PT Sans', 'Roboto',sans-serif;
+    font-style: normal;
+}
+
+div.show-case div.card div{
+    word-wrap: break-word;
+}
+
+.card h5{
+    font-weight: bold;
+    font-stretch: expanded;
+    font-size: 1.3rem;
+}
+
+.card p{
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 1.1rem;
+}
+
+/*footer*/
+footer{
+    display: flex;
+    text-align: right;
+    padding: 0px 24px 0px 24px;
+    justify-content: space-between;
+}
+
+footer div p{
+    font-family: 'Roboto Mono', 'Roboto' sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 0.8rem;
+}
+
+
+/*Menu per la scelta della foto profilo*/
+
+div.icon_menu{
+    color: white;
+    background-color: rgb(34, 34, 34);
+    z-index: 10;
+    position: fixed;
+    width: 66vw;
+    min-height: 400px;
+    border-radius: 8px;
+    right: 16.5vw;
+    bottom: 16.5vh;
+    box-shadow: 8px 8px 12px rgba(0,0,0,0.5);
+    font-family: 'Roboto', sans-serif;
+}
+
+div.icon_menu div.m_header{
+    background-color: rgb(22, 22, 22);
+    height: 15%;
+    border-radius: 8px 8px 0px 0px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.icon_menu div.m_header div.window_buttons{
+    display: flex;
+}
+
+div.icon_menu div.m_header div.form_container{
+    display:flex;
+    align-items: center;
+    justify-content: right;
+}
+
+div.icon_menu div.m_header div.form_container input#category{
+    border: 0px solid rgb(15, 15, 15);
+    border-bottom: 2px solid rgb(15, 15, 15);
+    border-radius: 0px;
+    background-color: rgba(0,0,0,0);
+    color:rgb(204, 204, 204)
+}
+
+div.icon_menu div.m_header div.form_container input#send{
+    background-color: rgb(12, 12, 12);
+    color: white;
+    border-radius: 2px;
+    border: 0px;
+    margin-right: 16px;
+    height: 1.5rem;
+}
+
+div.icon_menu div.m_header div.form_container input#send:hover{
+    background-color: rgb(5, 5, 5);
+}
+
+div.icon_menu div.m_header div.form_container input#category:focus{
+    border: 0px solid rgb(15, 15, 15);
+    border-bottom: 2px solid rgb(77, 77, 77);
+    border-radius: 0px;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+
+div.icon_menu div.m_body{
+    padding: 16px;
+}
+
+div.icon_menu div.m_body div.current{
+    display: flex;
+    width: 100%;
+}
+
+div.icon_menu div.m_body div.current div{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+div.icon_menu div.m_body div.current div a{
+    text-decoration: none;
+    padding: 2px 4px;
+    color: rgb(255, 255, 255);
+    border:1px solid rgb(255, 255, 255);
+    background-color: rgb(34, 34, 34);
+    border-radius: 8px;
+    margin: 2px 0px;
+}
+
+div.icon_menu div.m_body div.current div a:hover{
+    background-color: rgba(100, 255, 0, 0.5);
+}
+
+div.icon_menu div.m_body div.current div input{
+    border: 0px;
+    width: 100%;
+    color: white;
+    background-color: rgb(34, 34, 34);
+    text-align: left;
+}
+
+div.icon_menu div.m_body div.current div input#current_name{
+    font-size: 1.5em;
+}
+
+div.icon_menu div.m_body div.current div input#current_description{
+    font-size: 1em;
+}
+
+div.icon_menu div.m_body div.current input:focus{
+    outline: none;
+}
+
+div.icon_menu div.m_body div.current img{
+    margin-right: 16px;
+    border-radius: 8%;
+    border: 2px solid white;
+    height: 150px;
+    width: 150px;
+}
+
+div.icon_menu div.m_body div.pick{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div.icon_menu div.m_body div.pick img.picture_candidate{
+    height: 80px;
+    width: 80px;
+    border-radius: 8%;
+    border: 2px solid white;
+}
+
+div.icon_menu div.m_body div.pick img{
+    border-radius: 8%;
+    border: 2px solid white;
+    height: 7%;
+    width: 7%;
+}
+
+div.menu_priority{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+.mobile{
+    display: none;
+}
+
+.mobile2{
+    display: none;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.description{
+    max-width: 300px;
+}
+
+
+/*Versione mobile*/
+@media (max-width: 950px) {
+    nav{
+        flex-direction: row;
+        position: fixed;
+        bottom: 0px;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: center;
+        padding: 16px;
+        height: 5%;
+    }
+
+    nav div.nav_button h4{
+        display: none;
+    }
+
+    div#titolo_iscrizioni, div#titolo_iscrizioni:hover{
+      background-color:  #101010;
+      filter: opacity(0.3);
+    }
+
+    div#main article#video-frame{
+        width: 100%;
+        margin: 8px 24px;
+    }
+
+    div.show-case{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+    }
+
+    .card{
+        margin: 8px;
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    div.show-case div.card div.image{
+        margin-right: 8px;
+        height: 24vh;
+        width: calc(24vh*16/9);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url('https://lumiere-a.akamaihd.net/v1/images/b_thelionking2019_header_poststreet_18276_ada305ce.jpeg?region=0,0,2048,879');
+    }
+
+
+    header div#info{
+        display: none;
+    }
+
+    div#main nav div div.subscription{
+        display: none;
+    }
+
+    .desktop{
+        display:none;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    nav div.nav_button:hover{
+        background-color: #101010;
+    }
+
+    header div#search div{
+        display: flex;
+        align-items: center;
+    }
+
+    header div#search div img{
+        border-radius: 100%;
+    }
+
+    header div#search{
+        width: 90%;
+    }
+
+    header, header div#overlay, header div#background{
+        height: 30vh;
+    }
+
+    footer{
+        margin-bottom: 15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    div.icon_menu{
+        position: relative;
+        width: 100%;
+        margin: 0px;
+        top: 0px;
+        right: 0px;
+        border-radius: 0px;
+        box-shadow: none;
+        color: white;
+        background-color: rgb(34, 34, 34);
+        z-index: 10;
+    }
+
+    div.icon_menu div.m_header{
+        border-radius: 0px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .card{
+        margin: 8px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10%;
+    }
+
+    header div#overlay{
+        display: none;
+    }
+
+
+    header{
+        position: fixed;
+        top: 0px;
+        background-image: none;
+        box-shadow: none;
+        width: 100%;
+        height: 10%;
+    }
+
+    header div#background{
+        display: none;
+    }
+
+    article#video-frame section.genre{
+        margin-top: 20%;
+    }
+
+    header div#search{
+        box-shadow: 0px 0px 20px black;
+    }
+
+    div.show-case{
+        align-items: center;
+    }
+
+    div.icon_menu div.m_header div.form_conteiner{
+        width: 100%;
+        margin: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.icon_menu div.m_header div.form_conteiner form#choose_category{
+        width: 100%;
+    }
+
+    div.icon_menu div.m_body div.pick{
+        flex-direction: column;
+    }
+
+    div.icon_menu div.m_body div.pick img.picture_candidate{
+        margin: 10vw;
+        height: 30vw;
+        width: 30vw;
+    }
+
+    div.icon_menu div.m_body div.current{
+        flex-direction: column;
+    }
+
+    .mobile2{
+        display: flex;
+    }
+
+}
+
+a.linker:link{
+    text-decoration: none;
+    color:white;
+}
+
+a.linker:visited{
+    text-decoration: none;
+    color:white;
+}
+
+a.linker:active{
+    text-decoration: none;
+    color:white;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
