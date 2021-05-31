@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <link href="css/hw1.css" rel="stylesheet"/>
-        <link href="css/user_btn.css" rel="stylesheet"/>
+        <link href="../resources/css/hw2.css" rel="stylesheet"/>
+        <link href="../resources/css/user_btn.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>VideoTube o46002042</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -13,10 +12,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-        <script src="js/contents.js " defer></script>
-        <script src="js/script.js" defer></script>
-        <script src="js/sub_loader.js" defer></script>
-        <link rel="icon" href="img/icons/videotube.svg">
+        <script src="../resources/js/contents.js " defer></script>
+        <script src="../resources/js/script.js" defer></script>
+        <!--script src="../resources/js/sub_loader.js" defer></script-->
+        <link rel="icon" href="../resources/img/icons/videotube.svg">
     </head>
     <body>
         <div class="menu_priority hide"></div>

@@ -1,0 +1,196 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #151515;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+div#video_frame{
+    margin: 20px 0px 0px 15px;
+    width: 50%;
+}
+
+div#video_frame iframe{
+    border-radius: 4px;
+    height: 28.125vw;
+    width: 50vw;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+div#info{
+    margin: 20px 2%;
+    width: 40%;
+    padding: 0px 20px;
+    background-color: #080808;
+    border-radius: 4px;
+    height: 100%;
+}
+
+div#info section{
+    word-wrap: break-word;
+}
+
+div#info section div.description{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+main div.controls div#page_controls a img{
+    margin: 10px;
+    background-color: #080808;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+main div.controls div#page_controls a img#home:hover{
+    background-color: #00ff2299;
+}
+
+main div.controls{
+    display: flex;
+    justify-content: space-between;
+}
+
+main div.controls div#interact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+main div.controls div#interact div{
+    display: flex;
+    flex-direction: row;
+}
+
+div#sub_buttons a{
+    color: white;
+    text-decoration: none;
+}
+
+div.subscribed{
+    margin: 6px;
+    background-color: rgb(53, 53, 53);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 0px 15px;
+    height: 36px;
+    color: white;
+    box-shadow: black 0px 2px 3px;
+    font-weight: normal;
+}
+
+div.subscribe:hover{
+    background-color: rgb(42, 224, 81);
+    cursor: pointer;
+}
+
+div.subscribed:hover{
+    font-weight: normal;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    cursor: pointer;
+}
+
+div.subscribe{
+    margin: 6px;
+    background-color: rgb(21, 230, 14);
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 0px 15px;
+    height: 36px;
+    box-shadow: black 0px 2px 3px;
+}
+
+div.supporting{
+    margin: 6px;
+    background-color: rgb(53, 53, 53);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 0px 15px;
+    height: 36px;
+    color: white;
+    box-shadow: black 0px 2px 3px;
+    font-weight: normal;
+}
+
+div.support:hover{
+    background-color: rgb(187, 184, 40);
+    cursor: pointer;
+}
+
+div.supporting:hover{
+    font-weight: normal;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    cursor: pointer;
+}
+
+div.support, div.no-support{
+    margin: 6px;
+    background-color: rgb(230, 226, 3);
+    color: black;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    padding: 0px 15px;
+    height: 36px;
+    box-shadow: black 0px 2px 3px;
+}
+
+div.no-support:hover{
+    cursor: not-allowed;
+}
+
+img#little_ppic{
+    height: 48px;
+    width: 48px;
+    border-radius: 100%;
+    margin: 5px;
+    border: 2px solid white;
+}
+@media (max-width: 950px) {
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  div#video_frame{
+      margin: 0px 0px 0px 0px;
+      width: 90%;
+  }
+
+  div#video_frame iframe{
+      border-radius: 0px;
+      width: 100vw;
+      height: calc(100vw*9/16);
+      box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 4px;
+  }
+
+  div#info{
+      margin: 0px;
+      width: 90vw;
+      padding: 0px 5vw;
+      background-color: #080808;
+      border-radius: 8px 8px 0px 0px;
+      height: 100%;
+  }
+
+}

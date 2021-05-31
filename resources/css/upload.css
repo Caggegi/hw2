@@ -1,0 +1,418 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #151515;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+p#errore_upload{
+    margin:10px;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+main{
+    margin-top: 70px;
+}
+
+main div.row{
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid rgb(44, 44, 44);
+}
+
+main div.row img{
+    padding: 20px 20px;
+    width: 300px;
+    height: calc(300px*9/16);
+}
+
+header div.relative img#plus_button{
+    height: 32px;
+    width: 32px;
+}
+
+header{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    margin: 0px;
+    background-color: rgb(26, 26, 26);
+    box-shadow: 20px 0px 20px black;
+}
+
+header div.relative{
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header div.relative div{
+    display: flex;
+    align-items: center;
+}
+
+header div.relative img#profile{
+    margin: 10px;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+}
+
+div.upload{
+    width: 66%;
+    position: fixed;
+    margin: 2% 16.5%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px black;
+    color: white;
+    background-color: rgb(34, 34, 34);
+    z-index: 10;
+}
+
+div#popup_topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(22, 22, 22);
+    height: 15%;
+    border-radius: 8px 8px 0px 0px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+}
+
+div#buttons{
+    display: flex;
+    
+}
+
+div#upload_form{
+    display: flex;
+    padding: 16px;
+}
+
+div#upload_form div{
+    width: 50%;
+}
+
+div#upload_form div.radio_container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+input{
+    background-color: #090909;
+    border: 0px;
+    height: 2rem;
+    padding: 10px;
+    color: white;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+input:active{
+    background-color: #101010;
+}
+
+div#upload_form div.radio_container div input{
+    appearance: none;
+    background-color: #444444;
+    border: 2px solid #444444;
+    font-size: 2px;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+}
+
+div#upload_form div.radio_container div input:checked{
+    appearance: none;
+    background-color: #1f1f1f;
+    border: 2px solid rgb(100, 255, 0);
+}
+
+div#upload_form div.radio_container div{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.riepilogo{
+    margin-left: 16px;
+}
+
+
+/*Menu per la scelta della foto profilo*/
+
+div.icon_menu{
+    color: white;
+    background-color: rgb(34, 34, 34);
+    z-index: 10;
+    position: fixed;
+    width: 66vw;
+    min-height: 400px;
+    border-radius: 8px;
+    right: 16.5vw;
+    bottom: 16.5vh;
+    box-shadow: 8px 8px 12px rgba(0,0,0,0.5);
+    font-family: 'Roboto', sans-serif;
+}
+
+div.icon_menu div.m_header{
+    background-color: rgb(22, 22, 22);
+    height: 15%;
+    border-radius: 8px 8px 0px 0px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.icon_menu div.m_header div.window_buttons{
+    display: flex;
+}
+
+div.icon_menu div.m_header div.form_container{
+    display:flex;
+    align-items: center;
+    justify-content: right;
+}
+
+div.icon_menu div.m_header div.form_container input#category{
+    border: 0px solid rgb(15, 15, 15);
+    border-bottom: 2px solid rgb(15, 15, 15);
+    border-radius: 0px;
+    background-color: rgba(0,0,0,0);
+    color:rgb(204, 204, 204)
+}
+
+div.icon_menu div.m_header div.form_container input#send{
+    background-color: rgb(12, 12, 12);
+    color: white;
+    border-radius: 2px;
+    border: 0px;
+    margin-right: 16px;
+}
+
+div.icon_menu div.m_header div.form_container input#send:hover{
+    background-color: rgb(5, 5, 5);
+}
+
+div.icon_menu div.m_header div.form_container input#category:focus{
+    border: 0px solid rgb(15, 15, 15);
+    border-bottom: 2px solid rgb(77, 77, 77);
+    border-radius: 0px;
+    background-color: rgba(0,0,0,0);
+    outline: none;
+}
+
+div.icon_menu div.m_body{
+    padding: 16px;
+}
+
+div.icon_menu div.m_body div.current{
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+
+div.icon_menu div.m_body div.current div{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+div.icon_menu div.m_body div.current div input{
+    border: 0px;
+    width: 100%;
+    color: white;
+    background-color: rgb(34, 34, 34);
+    text-align: left;
+}
+
+div.icon_menu div.m_body div.current div input#current_name{
+    font-size: 1.5em;
+}
+
+div.icon_menu div.m_body div.current div input#current_description{
+    font-size: 1em;
+}
+
+div.icon_menu div.m_body div.current input:focus{
+    outline: none;
+}
+
+div.icon_menu div.m_body div.current img{
+    margin-right: 16px;
+    border-radius: 8%;
+    border: 2px solid white;
+    height: 150px;
+    width: 150px;
+}
+
+div.icon_menu div.m_body div.pick{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div.icon_menu div.m_body div.pick img.picture_candidate{
+    height: 80px;
+    width: 80px;
+    border-radius: 8%;
+    border: 2px solid white;
+}
+
+div.icon_menu div.m_body div.pick img{
+    border-radius: 8%;
+    border: 2px solid white;
+    height: 7%;
+    width: 7%;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+div.menu_priority{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+div#end_buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+div#end_buttons div{
+    background-color: #090909;
+    height: 2rem;
+    border-radius: 4px;
+    color: white;
+    margin: 8px;
+    box-shadow: 2px 2px 2px black;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile{
+    display: none;
+}
+
+@media (max-width: 950px){
+
+    div#popup_topbar{
+        border-radius: 0px;
+    }
+
+    div.upload{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin: 0px;
+        border-radius: 0px;
+        box-shadow: none;
+        color: white;
+        background-color: rgb(34, 34, 34);
+        z-index: 10;
+    }
+
+    div#upload_form{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    div#upload_form div{
+        width: 100%;
+    }
+
+    div.icon_menu{
+        position: relative;
+        width: 100%;
+        margin: 0px;
+        top: 0px;
+        right: 0px;
+        border-radius: 0px;
+        box-shadow: none;
+        color: white;
+        background-color: rgb(34, 34, 34);
+        z-index: 10;
+    }
+
+    div.icon_menu div.m_header{
+        border-radius: 0px;
+    }
+
+    .mobile{
+        display: block;
+    }
+
+    .desktop{
+        display: none;
+    }
+    
+
+}
+
+@media (max-width: 500px){
+
+    div.icon_menu div.m_header div.form_conteiner{
+        width: 100%;
+        margin: 0px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div.icon_menu div.m_header div.form_conteiner form#choose_category{
+        width: 100%;
+    }
+
+    div.icon_menu div.m_body div.pick{
+        flex-direction: column;
+    }
+
+    div.icon_menu div.m_body div.pick img.picture_candidate{
+        margin: 10vw;
+        height: 30vw;
+        width: 30vw;
+    }
+
+    div.icon_menu div.m_body div.current{
+        flex-direction: column;
+    }
+
+    main div.row{
+        flex-direction: column;
+    }
+
+    main{
+        margin-top: 96px;
+    }
+
+    main div.row div{
+        margin: 0px 16px;
+    }
+}
+
+
+.hidden{
+    display:none;
+}
