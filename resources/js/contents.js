@@ -5,13 +5,13 @@ function showHome(){
                         "<section class='genre' id='musica'><h2>Musica</h2><div class='show-case'></div></section>"+
                         "<section class='genre' id='gameplay'><h2>Gameplay</h2><div class='show-case'></div></section>"+
                         "<section class='genre' id='altro'><h2>Altro</h2><div class='show-case'></div></section>";
-    fetch("php/video_fetcher.php?modalita=preferiti").then(onJsonResponse).then(onPrefJson);
-    fetch("php/video_fetcher.php?modalita=home").then(onJsonResponse).then(onVideoJson);
+    fetch("../resources/api/video_fetcher.php?modalita=preferiti").then(onJsonResponse).then(onPrefJson);
+    fetch("../resources/api/video_fetcher.php?modalita=home").then(onJsonResponse).then(onVideoJson);
 }
 
 function showSearch(valore){
     article.innerHTML= "<section class='genre' id='ricerca'><h2>Ricerca</h2><div class='show-case'></div></section>";
-    fetch("php/video_fetcher.php?modalita=ricerca&value="+valore).then(onJsonResponse).then(onSearchJson);
+    fetch("../resources/api/video_fetcher.php?modalita=ricerca&value="+valore).then(onJsonResponse).then(onSearchJson);
 }
 
 function onSearchJson(json){
@@ -115,7 +115,7 @@ function loadPage(videoContent){
         document.querySelector("section#altro").classList.remove("hide");
         document.querySelector("section#altro").classList.add("show");
     }
-    
+
     for(let elemento of videoContent){
         let sezione=undefined;
         if(elemento.tipo=='film'){
@@ -200,8 +200,8 @@ function onText(promise){
 function aggiungiPreferiti(event){
     const add = new FormData();
     add.append("azione", "aggiungi");
-    add.append("video_id", event.currentTarget.dataset.codice); 
-    fetch("php/favourite_manager.php", {
+    add.append("video_id", event.currentTarget.dataset.codice);
+    fetch("../resources/api/favourite_manager.php", {
         method:'post',
         body: add}).then(onText);
     showHome();
@@ -211,8 +211,8 @@ function aggiungiPreferiti(event){
 function rimuoviPreferiti(event){
     const remove = new FormData();
     remove.append("azione", "rimuovi");
-    remove.append("video_id", event.currentTarget.dataset.codice); 
-    fetch("php/favourite_manager.php", {
+    remove.append("video_id", event.currentTarget.dataset.codice);
+    fetch("../resources/api/favourite_manager.php", {
         method:'post',
         body: remove}).then(onText);
     showHome();

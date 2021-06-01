@@ -43,17 +43,17 @@ function onShowPrefJson(json){
 
 function showpref(){
     article.innerHTML=  "<section class='genre' id='preferiti'><h2>Preferiti</h2><div class='show-case'></div></section>";
-    fetch("php/video_fetcher.php?modalita=preferiti").then(onJsonResponse).then(onShowPrefJson);
+    fetch("../resources/api/video_fetcher.php?modalita=preferiti").then(onJsonResponse).then(onShowPrefJson);
 }
 
 function showRecents(){
     article.innerHTML=  "<section class='genre' id='recenti'><h2>Recenti</h2><div class='show-case'></div></section>";
-    fetch("php/video_fetcher.php?modalita=recenti").then(onJsonResponse).then(onShowRecentsJson);
+    fetch("../resources/api/video_fetcher.php?modalita=recenti").then(onJsonResponse).then(onShowRecentsJson);
 }
 
 function showHotTopics(){
     article.innerHTML=  "<section class='genre' id='trend'><h2>Tendenze</h2><div class='show-case'></div></section>";
-    fetch("php/video_fetcher.php?modalita=virali").then(onJsonResponse).then(onShowHotTopicJson);
+    fetch("../resources/api/video_fetcher.php?modalita=virali").then(onJsonResponse).then(onShowHotTopicJson);
 }
 
 const mostraPreferiti = document.querySelector("div#preferiti");
@@ -114,7 +114,7 @@ function saveIconMenu(){
     formdata.append("email", Email);
     formdata.append("image", PPic);
 
-    fetch("php/accountDetails.php", {
+    fetch("../resources/api/accountDetails.php", {
         method:'post',
         body: formdata
     }).then(onJsonResponse).then(onSaveJson);
@@ -153,7 +153,7 @@ function reloadPicCategories(event){
 
 function showUnsplashed(category){
     document.querySelector("div.icon_menu div.m_body div.pick").innerHTML = "";
-    fetch("php/unsplash_caller.php?categoria="+category).then(onJsonResponse).then(unsplashJson);
+    fetch("../resources/api/unsplash_caller.php?categoria="+category).then(onJsonResponse).then(unsplashJson);
 }
 
 function unsplashJson(json){

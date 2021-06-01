@@ -38,18 +38,18 @@
                     <div>
                         <input type='text' placeholder='Name' id='current_name'></input>
                         <input type='text' placeholder='Email' id='current_description'></input>
-                          @if (Session::get("hash", "default") === "default")
-                            //reindirizza al login
+                          @if (session('id', 'default') == "default")
+                            <a href='login'>Log In</a>
                           @else
-                            //reindirizza al logout
-                            @if ($premium === "settimanale")
-                              //disdice il settimanale e stampa tasto con il caffè
-                            @elseif ($premium === "mensile")
-                              //disdice il mensile e stampa tasto con la cioccolata
-                            @elseif ($premium === "annuale")
-                              //disdice l'annuale e stampa tasto con l'avocado
+                            <a href='login'>Log Out</a>
+                            @if ({{ $abbonamento }} == "settimanale")
+                              <a href='leave_us.php'>☕Non voglio pagare più</a>
+                            @elseif ({{ $abbonamento }} == "mensile")
+                              <a href='leave_us.php'>🍫Non voglio pagare più</a>
+                            @elseif ({{ $abbonamento }} == "annuale")
+                              <a href='leave_us.php'>🥑Non voglio pagare più</a>
                             @else
-                              //reindirizza alla creazione dell'abbonamento
+                              <a href='join_us.php'>Diventa Premium</a>
                             @endif
                           @endif
                     </div>
@@ -68,16 +68,17 @@
                 </input>
                 <div>
                     <img src="https://raw.githubusercontent.com/Caggegi/mhw1/master/img/magnify.svg"/>
-                    <img id="mobile_pic" class="mobile" src="{{$profile_pic}}"/> <!--stampo la foto profilo-->
+                    <img id="mobile_pic" class="mobile"
+                    src="{{Session::get('profile_pic', 'https://raw.githubusercontent.com/Caggegi/mhw3/main/img/icons/account-circle-outline.svg')}}"/>
                 </div>
             </div>
             <div id="info">
                 <div id="account">
                   <div> <!--stampo il profilo-->
-                    <h3>{{$nome}} {{$cognome}}</h3>
-                    <p>{{$email}}</p>
+                    <h3>{{Session::get('name', 'Welcome')}} {{Session::get('surname', 'Stranger')}}</h3>
+                    <p>{{Session::get('email', 'login now')}}</p>
                   </div>
-                  <img src="{{$profile_pic}}"/>
+                  <img src="{{Session::get('profile_pic', 'https://raw.githubusercontent.com/Caggegi/mhw3/main/img/icons/account-circle-outline.svg')}}"/>
                 </div>
             </div>
         </header>

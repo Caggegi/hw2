@@ -19,3 +19,7 @@ use App\Http\Controllers\Controller;
 Route::get("/", 'App\Http\Controllers\Controller@home');
 
 Route::get("/video-{id}/{src}", 'App\Http\Controllers\Controller@video');
+
+Route::get("/login", 'App\Http\Controllers\Controller@display_login');
+
+Route::post("/login", 'App\Http\Controllers\LoginController@login');

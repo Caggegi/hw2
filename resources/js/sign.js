@@ -9,7 +9,7 @@ function changeMode(event){
     if(mode===1){
         mode = 0;
         document.querySelector("input#mode").value = 0;
-        event.currentTarget.src = "img/icons/chevron-down.svg";
+        event.currentTarget.src = "../resources/img/icons/chevron-down.svg";
         document.querySelector("form div#name_surname").classList.add("hidden");
         document.querySelector("input#name").value = "";
         document.querySelector("input#surname").value = "";
@@ -22,7 +22,7 @@ function changeMode(event){
     } else{
         mode = 1;
         document.querySelector("input#mode").value = 1;
-        event.currentTarget.src = "img/icons/chevron-up.svg";
+        event.currentTarget.src = "../resources/img/icons/chevron-up.svg";
         document.querySelector("form div#name_surname").classList.remove("hidden");
         document.querySelector("input#email").type = "text";
         document.querySelector("input#confirm").type = "password";
@@ -139,11 +139,11 @@ document.querySelector("input#inp_creator").addEventListener("click", changeCrea
 function changeSpecGIF(){
     const left_image = document.querySelector("main div.left_image");
     left_image.style.backgroundColor = "#B1B9C7";
-    left_image.querySelector("img").src = "img/GIF/signup.gif"
+    left_image.querySelector("img").src = "../resources/img/GIF/signup.gif"
 }
 
 function changeCreatGIF(){
     const left_image = document.querySelector("main div.left_image");
     left_image.style.backgroundColor = "#4a4b58";
-    left_image.querySelector("img").src = "img/GIF/signup2.gif"
+    left_image.querySelector("img").src = "../resources/img/GIF/signup2.gif"
 }
