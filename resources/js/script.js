@@ -43,17 +43,17 @@ function onShowPrefJson(json){
 
 function showpref(){
     article.innerHTML=  "<section class='genre' id='preferiti'><h2>Preferiti</h2><div class='show-case'></div></section>";
-    fetch("../resources/api/video_fetcher.php?modalita=preferiti").then(onJsonResponse).then(onShowPrefJson);
+    fetch("home/preferiti").then(onJsonResponse).then(onShowPrefJson);
 }
 
 function showRecents(){
     article.innerHTML=  "<section class='genre' id='recenti'><h2>Recenti</h2><div class='show-case'></div></section>";
-    fetch("../resources/api/video_fetcher.php?modalita=recenti").then(onJsonResponse).then(onShowRecentsJson);
+    fetch("home/recenti").then(onJsonResponse).then(onShowRecentsJson);
 }
 
 function showHotTopics(){
     article.innerHTML=  "<section class='genre' id='trend'><h2>Tendenze</h2><div class='show-case'></div></section>";
-    fetch("../resources/api/video_fetcher.php?modalita=virali").then(onJsonResponse).then(onShowHotTopicJson);
+    fetch("home/tendenze").then(onJsonResponse).then(onShowHotTopicJson);
 }
 
 const mostraPreferiti = document.querySelector("div#preferiti");

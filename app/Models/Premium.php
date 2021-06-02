@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Premium extends Model{
 
+  protected $table="premiums";
+
   public function spectator(){
     return $this->hasOne("Spectator");
   }

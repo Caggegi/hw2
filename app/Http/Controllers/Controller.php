@@ -16,7 +16,7 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function home(){
-      $usr_id = session('user_id');
+      $usr_id = session('id');
       $user=Spectator::find($usr_id);
       if(isset($user)){
         return view('hw2')->with('profile_pic', $user->profile_pic)
@@ -27,13 +27,17 @@ class Controller extends BaseController
         return view('hw2')->with('profile_pic', 'https://raw.githubusercontent.com/Caggegi/mhw3/main/img/icons/account-circle-outline.svg')
                           ->with('nome', 'Welcome')
                           ->with('cognome', 'Stranger')
-                          ->with('email', 'Register or log in now!');
+                          ->with('email', 'Register or log in now!')
+                          ->with('abbonamento', 'not_premium');
       }
     }
 
     public function display_login(){
-      if(session('id') != null)
-        Session::flush();
-      return view('signup');
+      return view('signup')->with('_token', csrf_token());
+    }
+
+    public function logout(){
+          Session::flush();
+          return redirect('login');
     }
 }

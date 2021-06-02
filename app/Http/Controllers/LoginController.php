@@ -20,7 +20,7 @@ class LoginController extends BaseController
       else
         $rows = Spectator::where('username', request('username'))->first();
       if(isset($rows))
-        return view('signup')->with('csrf_token', csrf_token())
+        return view('signup')->with('_token', csrf_token())
                              ->with('errore','already_registered');
       else{
         if(request('type') == "creator"){
@@ -56,20 +56,21 @@ class LoginController extends BaseController
         Session::put('username',$row->username);
         Session::put('email',$row->email);
         Session::put('profile_pic',$row->profile_pic);
-        return view('hw2');
+        $abbonamento = 'not_premium';
+        return view('hw2')->with('abbonamento', $abbonamento);
       }
     } else{
       //login
       if(request('type') == "creator"){
           $rows = Creator::where('username', request('username'))->first();
           if(!isset($rows->id))
-            return view('signup')->with('csrf_token', csrf_token())
+            return view('signup')->with('_token', csrf_token())
                                  ->with('errore','not_registered');
           else {
             $row = Creator::where('username', request('username'))
                           ->where('password', hash('sha256', request('password')))
                           ->first();
-            if(!isset($row)) return view('signup')->with('csrf_token', csrf_token())
+            if(!isset($row)) return view('signup')->with('_token', csrf_token())
                                  ->with('errore','wrong_psw');
             else{
               Session::put('id',$row->id);
@@ -79,19 +80,19 @@ class LoginController extends BaseController
               Session::put('username',$row->username);
               Session::put('email',$row->email);
               Session::put('profile_pic',$row->profile_pic);
-              return view('hw2');
+              return view('upload');
             }
           }
       } else{
           $rows = Spectator::where('username', request('username'))->first();
           if(!isset($rows->id))
-            return view('signup')->with('csrf_token', csrf_token())
+            return view('signup')->with('_token', csrf_token())
                                  ->with('errore','not_registered');
           else{
             $row = Spectator::where('username', request('username'))
                           ->where('password', hash('sha256', request('password')))
                           ->first();
-            if(!isset($row)) return view('signup')->with('csrf_token', csrf_token())
+            if(!isset($row)) return view('signup')->with('_token', csrf_token())
                                  ->with('errore','wrong_psw');
             else{
               Session::put('id',$row->id);
@@ -102,9 +103,9 @@ class LoginController extends BaseController
               Session::put('email',$row->email);
               Session::put('profile_pic',$row->profile_pic);
               $premium = Premium::where('id', $row->id)->first();
+              $abbonamento = 'not_premium';
               if(isset($premium->id))
                 $abbonamento = $premium->tipo;
-              else $abbonamento = 'not_premium';
               return view('hw2')->with('abbonamento', $abbonamento);
             }
           }

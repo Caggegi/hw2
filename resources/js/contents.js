@@ -5,13 +5,13 @@ function showHome(){
                         "<section class='genre' id='musica'><h2>Musica</h2><div class='show-case'></div></section>"+
                         "<section class='genre' id='gameplay'><h2>Gameplay</h2><div class='show-case'></div></section>"+
                         "<section class='genre' id='altro'><h2>Altro</h2><div class='show-case'></div></section>";
-    fetch("../resources/api/video_fetcher.php?modalita=preferiti").then(onJsonResponse).then(onPrefJson);
-    fetch("../resources/api/video_fetcher.php?modalita=home").then(onJsonResponse).then(onVideoJson);
+    fetch("home/preferiti").then(onJsonResponse).then(onPrefJson);
+    fetch("home").then(onJsonResponse).then(onVideoJson);
 }
 
 function showSearch(valore){
     article.innerHTML= "<section class='genre' id='ricerca'><h2>Ricerca</h2><div class='show-case'></div></section>";
-    fetch("../resources/api/video_fetcher.php?modalita=ricerca&value="+valore).then(onJsonResponse).then(onSearchJson);
+    fetch("home/ricerca/"+valore).then(onJsonResponse).then(onSearchJson);
 }
 
 function onSearchJson(json){

@@ -15,42 +15,39 @@
                 <img src="../resources/img/GIF/signup.gif">
             </div>
             <div class="form_container">
-            <?php
-                        if(isset($errore) && $errore!=""){
-                            switch ($errore){
-                                case "already_registered":
-                                    echo "<div class='error'>";
-                                    echo "<h3>Già ti conosco!😏</h3>";
-                                    echo "<p>Utente già registrato effettua il login</p>";
-                                    echo "</div>";
-                                    break;
-                                case "unknown_mode":
-                                    echo "<div class='error'>";
-                                    echo "<h3>Qualcuno qui sta barando...</h3>";
-                                    echo "<p>Modalità di accesso sconosciuta contattare il supporto</p>";
-                                    echo "</div>";
-                                    break;
-                                case "not_registered":
-                                    echo "<div class='error'>";
-                                    echo "<h3>Scusa come hai detto che ti chiami? Ah, non lo hai ancora detto...</h3>";
-                                    echo "<p>Non sei ancora registrato!</p>";
-                                    echo "</div>";
-                                    break;
-                                case "wrong_psw":
-                                    echo "<div class='error'>";
-                                    echo "<h3>Oh no... l'hai scritta su qualche bigliettino? vero? VEROO??!?!?</h3>";
-                                    echo "<p>La password inserita non è corretta, riprova.</p>";
-                                    echo "</div>";
-                                    break;
-                                default:
-                                    echo "<div class='error'>";
-                                    echo "<h3>Errore</h3>";
-                                    echo "<p>Si è verificato un errore sconosciuto, riprova più tardi</p>";
-                                    echo "</div>";
-                                    break;
-                            }
-                        }
-                    ?>
+            @if (isset($errore) && $errore!="")
+            @switch($errore)
+              @case("already_registered")
+                  <div class='error'>
+                  <h3>Già ti conosco!😏</h3>
+                  <p>Utente già registrato effettua il login</p>
+                  </div>
+              @break
+              @case("unknown_mode")
+                  <div class='error'>
+                  <h3>Qualcuno qui sta barando...</h3>
+                  <p>Modalità di accesso sconosciuta contattare il supporto</p>
+                  </div>
+              @break
+              @case("not_registered")
+                  <div class='error'>
+                  <h3>Scusa come hai detto che ti chiami? Ah, non lo hai ancora detto...</h3>
+                  <p>Non sei ancora registrato!</p>
+                  </div>
+              @break
+              @case("wrong_psw")
+                  <div class='error'>
+                  <h3>Oh no... l'hai scritta su qualche bigliettino? vero? VEROO??!?!?</h3>
+                  <p>La password inserita non è corretta, riprova.</p>
+                  </div>
+              @break
+              @default
+                  <div class='error'>
+                  <h3>Errore</h3>
+                  <p>Si è verificato un errore sconosciuto, riprova più tardi</p>
+                  </div>
+              @endswitch
+            @endif
                 <div id="error" class="error hidden">
                 </div>
                 <div id="close_div">
@@ -60,7 +57,7 @@
                     </a>
                 </div>
                 <form name="signup_form" method="post">
-                    @csrf
+                    <input type='hidden' name='_token' value='{{$_token}}'></input>
                     <input type="hidden" name="mode" id="mode" value="spectator"></input>
                     <div id="name_surname" class="hidden">
                         <input id="name" name="name" type="text" placeholder="Name"></input>

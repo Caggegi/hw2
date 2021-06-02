@@ -18,8 +18,12 @@ use App\Http\Controllers\Controller;
 
 Route::get("/", 'App\Http\Controllers\Controller@home');
 
-Route::get("/video-{id}/{src}", 'App\Http\Controllers\Controller@video');
+Route::get("/video={id}/{src}", 'App\Http\Controllers\Controller@video');
 
 Route::get("/login", 'App\Http\Controllers\Controller@display_login');
 
+Route::get("/logout", 'App\Http\Controllers\Controller@logout');
+
 Route::post("/login", 'App\Http\Controllers\LoginController@login');
+
+Route::get("/home/{type?}/{ricerca?}", "App\Http\Controllers\SectionController@load");

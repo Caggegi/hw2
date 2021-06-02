@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
         <script src="../resources/js/contents.js " defer></script>
         <script src="../resources/js/script.js" defer></script>
-        <!--script src="../resources/js/sub_loader.js" defer></script-->
+        <script src="../resources/js/sub_loader.js" defer></script>
         <link rel="icon" href="../resources/img/icons/videotube.svg">
     </head>
     <body>
@@ -41,12 +41,12 @@
                           @if (session('id', 'default') == "default")
                             <a href='login'>Log In</a>
                           @else
-                            <a href='login'>Log Out</a>
-                            @if ({{ $abbonamento }} == "settimanale")
+                            <a href='logout'>Log Out</a>
+                            @if ($abbonamento == "settimanale")
                               <a href='leave_us.php'>☕Non voglio pagare più</a>
-                            @elseif ({{ $abbonamento }} == "mensile")
+                            @elseif ($abbonamento == "mensile")
                               <a href='leave_us.php'>🍫Non voglio pagare più</a>
-                            @elseif ({{ $abbonamento }} == "annuale")
+                            @elseif ($abbonamento == "annuale")
                               <a href='leave_us.php'>🥑Non voglio pagare più</a>
                             @else
                               <a href='join_us.php'>Diventa Premium</a>
