@@ -19,10 +19,13 @@ class Controller extends BaseController
       $usr_id = session('id');
       $user=Spectator::find($usr_id);
       if(isset($user)){
-        return view('hw2')->with('profile_pic', $user->profile_pic)
-                          ->with('nome', $user->name)
-                          ->with('cognome', $user->surname)
-                          ->with('email', $user->email);
+        if(session('type') == 'spectator')
+          return view('hw2')->with('profile_pic', $user->profile_pic)
+                            ->with('nome', $user->name)
+                            ->with('cognome', $user->surname)
+                            ->with('email', $user->email);
+        else
+          return view('upload');
       } else{
         return view('hw2')->with('profile_pic', 'https://raw.githubusercontent.com/Caggegi/mhw3/main/img/icons/account-circle-outline.svg')
                           ->with('nome', 'Welcome')

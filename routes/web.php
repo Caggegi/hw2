@@ -27,3 +27,7 @@ Route::get("/logout", 'App\Http\Controllers\Controller@logout');
 Route::post("/login", 'App\Http\Controllers\LoginController@login');
 
 Route::get("/home/{type?}/{ricerca?}", "App\Http\Controllers\SectionController@load");
+
+Route::get("/subscriptions", "App\Http\Controllers\SectionController@myCreators");
+
+Route::post("/myFavourites", "App\Http\Controllers\InteractionsController@favouritesManager");

@@ -197,23 +197,45 @@ function onText(promise){
     return promise.text();
 }
 
+let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 function aggiungiPreferiti(event){
-    const add = new FormData();
-    add.append("azione", "aggiungi");
-    add.append("video_id", event.currentTarget.dataset.codice);
-    fetch("../resources/api/favourite_manager.php", {
-        method:'post',
-        body: add}).then(onText);
+    fetch("myFavourites", {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": token
+        },
+        mode: 'no-cors',
+        method:'POST',
+        body: JSON.stringify({
+                    azione: 'aggiungi',
+                    video_id: event.currentTarget.dataset.codice
+                })
+        }).then(onText, onServerError);
     showHome();
 }
 
 
 function rimuoviPreferiti(event){
-    const remove = new FormData();
-    remove.append("azione", "rimuovi");
-    remove.append("video_id", event.currentTarget.dataset.codice);
-    fetch("../resources/api/favourite_manager.php", {
-        method:'post',
-        body: remove}).then(onText);
+    fetch("myFavourites", {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": token
+        },
+        mode: 'no-cors',
+        method:'POST',
+        body: JSON.stringify({
+                    azione: 'rimuovi',
+                    video_id: event.currentTarget.dataset.codice
+                })
+        }).then(onText, onServerError);
     showHome();
+}
+
+function onServerError(errore){
+  console.log(errore);
 }

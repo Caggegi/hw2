@@ -36,6 +36,14 @@ class LoginController extends BaseController
             $row = Creator::where('username', request('username'))
                          ->where('password', hash('sha256', request('password')))
                          ->first();
+            Session::put('id',$row->id);
+            Session::put('name',$row->name);
+            Session::put('surname',$row->surname);
+            Session::put('type','creator');
+            Session::put('username',$row->username);
+            Session::put('email',$row->email);
+            Session::put('profile_pic',$row->profile_pic);
+            return view('upload');
         } else{
             $spectator = new Spectator;
             $spectator->name = request('name');
@@ -48,16 +56,17 @@ class LoginController extends BaseController
             $row = Spectator::where('username', request('username'))
                          ->where('password', hash('sha256', request('password')))
                          ->first();
+            Session::put('id',$row->id);
+            Session::put('name',$row->name);
+            Session::put('surname',$row->surname);
+            Session::put('type','creator');
+            Session::put('username',$row->username);
+            Session::put('email',$row->email);
+            Session::put('profile_pic',$row->profile_pic);
+            $abbonamento = 'not_premium';
+            return view('hw2')->with('abbonamento', $abbonamento);
         }
-        Session::put('id',$row->id);
-        Session::put('name',$row->name);
-        Session::put('surname',$row->surname);
-        Session::put('type','creator');
-        Session::put('username',$row->username);
-        Session::put('email',$row->email);
-        Session::put('profile_pic',$row->profile_pic);
-        $abbonamento = 'not_premium';
-        return view('hw2')->with('abbonamento', $abbonamento);
+
       }
     } else{
       //login

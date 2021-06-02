@@ -18,6 +18,7 @@
         <link rel="icon" href="../resources/img/icons/videotube.svg">
     </head>
     <body>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <div class="menu_priority hide"></div>
         <div class="icon_menu hide">
             <div class="m_header">

@@ -19,6 +19,5 @@ function onSubList(jsonSubList){
         subs.appendChild(cont);
     }
 }
-if(document.querySelector("input#session_type").value === "spectator"){
-    fetch('php/sub_fetcher.php').then(onSubResponse).then(onSubList);
-}
+
+fetch('subscriptions').then(onSubResponse).then(onSubList);
