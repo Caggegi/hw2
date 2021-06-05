@@ -26,26 +26,26 @@
                     </div>
                     <div id="sub_buttons">
                         @if(Session::get('id') == null)
-                          <div id='common' class='subscribe no-session'><p>iscriviti</p></div></a>
-                          <div id='premium' class='support no-session'><p>abbonati</p></div></a>
+                          <div id='common' class='subscribe no-session'><p id='t_c'>iscriviti</p></div></a>
+                          <div id='premium' class='support no-session'><p id='t_p'>abbonati</p></div></a>
                         @else
                           @if($is_subscribed == 'true')
-                            <div id='common' class='subscribed' data-creator='{{$creator_id}}'><p>iscritto</p></div></a>
+                            <div id='common' class='subscribed' data-creator='{{$creator_id}}'><p id='t_c'>iscritto</p></div></a>
                           @else
-                            <div id='common' class='subscribe' data-creator='{{$creator_id}}'><p>iscriviti</p></div></a>
+                            <div id='common' class='subscribe' data-creator='{{$creator_id}}'><p id='t_c'>iscriviti</p></div></a>
                           @endif
                           @if($is_premium == 'true')
                             @if($support == $creator_id)
-                              <div id='premium' class='supporting' data-creator='{{$creator_id}}'><p>abbonato</p></div></a>
+                              <div id='premium' class='supporting' data-creator='{{$creator_id}}'><p id='t_p'>abbonato</p></div></a>
                             @else
                               @if($support == null)
-                                <div id='premium' class='support' data-creator='{{$creator_id}}'><p>abbonati</p></div></a>
+                                <div id='premium' class='support' data-creator='{{$creator_id}}'><p id='t_p'>abbonati</p></div></a>
                               @else
-                                <div id='premium' class='no-support'><p>abbonato altrove</p></div></a>
+                                <div id='premium' class='no-support'><p id='t_p'>abbonato altrove</p></div></a>
                               @endif
                             @endif
                           @else
-                            <div id='premium' class='no-premium'><p>abbonati</p></div></a>
+                            <div id='premium' class='no-premium'><p id='t_p'>abbonati</p></div></a>
                           @endif
                         @endif
                     </div>

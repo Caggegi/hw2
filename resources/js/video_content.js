@@ -7,7 +7,7 @@ function onSubPressed(event){
     if(event.currentTarget.classList.contains("subscribe")){
       event.currentTarget.classList.remove("subscribe");
       event.currentTarget.classList.add("subscribed");
-      event.currentTarget.querySelector("p").textContent = "iscritto";
+      document.querySelector("p#t_c").textContent = "iscritto";
       fetch('/hw2/public/subscribe', {
         headers: {
             "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function onSubPressed(event){
     } else if(event.currentTarget.classList.contains("subscribed")){
       event.currentTarget.classList.remove("subscribed");
       event.currentTarget.classList.add("subscribe");
-      event.currentTarget.querySelector("p").textContent = "iscriviti";
+      document.querySelector("p#t_c").textContent = "iscriviti";
       fetch('/hw2/public/unsubscribe', {
         headers: {
             "Content-Type": "application/json",
@@ -49,7 +49,7 @@ function onSupPressed(event){
     if(event.currentTarget.classList.contains("support")){
       event.currentTarget.classList.remove("support");
       event.currentTarget.classList.add("supporting");
-      event.currentTarget.querySelector("p").textContent = "abbonati";
+      document.querySelector("p#t_p").textContent = "abbonati";
       fetch('/hw2/public/support', {
         headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function onSupPressed(event){
     } else if(event.currentTarget.classList.contains("supporting")){
       event.currentTarget.classList.remove("supporting");
       event.currentTarget.classList.add("support");
-      event.currentTarget.querySelector("p").textContent = "abbonato";
+      document.querySelector("p#t_p").textContent = "abbonato";
       fetch('/hw2/public/unsupport', {
         headers: {
             "Content-Type": "application/json",
