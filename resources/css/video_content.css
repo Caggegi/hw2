@@ -141,7 +141,7 @@ div.supporting:hover{
     cursor: pointer;
 }
 
-div.support, div.no-support{
+div.support, div.no-support, div.no-premium{
     margin: 6px;
     background-color: rgb(230, 226, 3);
     color: black;
@@ -155,7 +155,7 @@ div.support, div.no-support{
     box-shadow: black 0px 2px 3px;
 }
 
-div.no-support:hover{
+div.no-support:hover, div.no-premium:hover{
     cursor: not-allowed;
 }
 

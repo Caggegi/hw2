@@ -31,3 +31,27 @@ Route::get("/home/{type?}/{ricerca?}", "App\Http\Controllers\SectionController@l
 Route::get("/subscriptions", "App\Http\Controllers\SectionController@myCreators");
 
 Route::post("/myFavourites", "App\Http\Controllers\InteractionsController@favouritesManager");
+
+Route::post("/accountSettings", "App\Http\Controllers\InteractionsController@infoManager");
+
+Route::post("/uploadVideo", "App\Http\Controllers\CreatorController@newVideo");
+
+Route::get("/video/of/{crid}", "App\Http\Controllers\CreatorController@getVideos");
+
+Route::get("/content/{id}/{src}", "App\Http\Controllers\Controller@videoPage");
+
+Route::post("/subscribe", "App\Http\Controllers\InteractionsController@subscribe");
+
+Route::post("/unsubscribe", "App\Http\Controllers\InteractionsController@unsubscribe");
+
+Route::post("/support", "App\Http\Controllers\InteractionsController@support");
+
+Route::post("/unsupport", "App\Http\Controllers\InteractionsController@unsupport");
+
+Route::get("/join_us", "App\Http\Controllers\Controller@display_joinus");
+
+Route::post("/join_us", "App\Http\Controllers\Controller@joinus");
+
+Route::get("/leave_us", "App\Http\Controllers\Controller@leave_us");
+
+Route::get("/image_palette/{category?}", "App\Http\Controllers\ApiController@imagePalette");

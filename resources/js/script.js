@@ -109,14 +109,20 @@ function saveIconMenu(){
     document.querySelector("body").classList.remove("no-scroll");
 
     //mando i cambiamenti al database
-    const formdata = new FormData();
-    formdata.append("nome", Nome_Cognome);
-    formdata.append("email", Email);
-    formdata.append("image", PPic);
-
-    fetch("../resources/api/accountDetails.php", {
-        method:'post',
-        body: formdata
+    fetch('accountSettings', {
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": token,
+          'Content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        nome: Nome_Cognome,
+        email: Email,
+        image: PPic
+      })
     }).then(onJsonResponse).then(onSaveJson);
 }
 
@@ -153,7 +159,7 @@ function reloadPicCategories(event){
 
 function showUnsplashed(category){
     document.querySelector("div.icon_menu div.m_body div.pick").innerHTML = "";
-    fetch("../resources/api/unsplash_caller.php?categoria="+category).then(onJsonResponse).then(unsplashJson);
+    fetch("../public/image_palette/"+category).then(onJsonResponse).then(unsplashJson);
 }
 
 function unsplashJson(json){

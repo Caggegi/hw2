@@ -53,7 +53,7 @@ CREATE table videos(
     INDEX index_video(id));
 
 CREATE table subscriptions(
-    id int PRIMARY KEY,
+    id int auto_increment PRIMARY KEY,
     premium int,
     creator int,
     created_at timestamp,
@@ -64,20 +64,8 @@ CREATE table subscriptions(
     INDEX ab_premium(premium),
     INDEX ab_creator(creator));
 
-CREATE table old_subscriptions(
-    id int PRIMARY KEY,
-    premium int,
-    creator int,
-    created_at timestamp,
-    updated_at timestamp,
-    UNIQUE(premium, creator, created_at),
-    FOREIGN KEY(premium) REFERENCES premiums(id) on update cascade,
-    FOREIGN KEY(creator) REFERENCES creators(id) on update cascade,
-    INDEX ap_premium(premium),
-    INDEX ap_creator(creator));
-
 CREATE table followers(
-    id int PRIMARY KEY,
+    id int auto_increment PRIMARY KEY,
     spectator int,
     creator int,
     created_at timestamp,
@@ -90,7 +78,7 @@ CREATE table followers(
 
 
 CREATE table favourites(
-    id int PRIMARY KEY,
+    id int auto_increment PRIMARY KEY,
     spectator int,
     video int,
     created_at timestamp,
@@ -107,24 +95,6 @@ delimiter //
   create procedure is_supporter (IN hash_premium int)
   begin
     SELECT creator FROM subscriptions where premium=hash_premium;
-  end //
-
-create procedure abbonamenti_fatti (IN hash_premium int)
-  begin
-	drop table if exists abbonamenti_t;
-	create temporary table abbonamenti_t(
-		creator int,
-		username varchar(16),
-		created_at timestamp,
-		updated_at timestamp,
-		fine timestamp);
-	insert into abbonamenti_t
-		select a.creator, c.username, a.created_at, a.created_at, null from subscriptions a join creators c on a.creator = c.id
-			where a.premium=hash_premium;
-	insert into abbonamenti_t
-		select a.creator, c.username, a.created_at, a.created_at, a.fine from old_subscriptions a join creators c on a.creator = c.id
-			where a.premium=hash_premiums;
-	select * from abbonamenti_t;
   end //
 
 delimiter ;
@@ -151,11 +121,6 @@ create trigger remove_like
     for each row
 	update videos
         set likes = likes-1 where id = old.video;
-
-create trigger aggiorna_abbonamenti
-	after delete on subscriptions
-    for each row
-		insert into old_subscriptions values (old.premium, old.creator, old.created_at, current_date());
 
 delimiter //
 create trigger is_premiums

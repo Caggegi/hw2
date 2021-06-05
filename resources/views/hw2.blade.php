@@ -44,13 +44,13 @@
                           @else
                             <a href='logout'>Log Out</a>
                             @if ($abbonamento == "settimanale")
-                              <a href='leave_us.php'>☕Non voglio pagare più</a>
+                              <a href='leave_us'>☕Non voglio pagare più</a>
                             @elseif ($abbonamento == "mensile")
-                              <a href='leave_us.php'>🍫Non voglio pagare più</a>
+                              <a href='leave_us'>🍫Non voglio pagare più</a>
                             @elseif ($abbonamento == "annuale")
-                              <a href='leave_us.php'>🥑Non voglio pagare più</a>
+                              <a href='leave_us'>🥑Non voglio pagare più</a>
                             @else
-                              <a href='join_us.php'>Diventa Premium</a>
+                              <a href='join_us'>Diventa Premium</a>
                             @endif
                           @endif
                     </div>

@@ -11,6 +11,8 @@
         <script src="../resources/js/upload.js" defer></script>
     </head>
     <body>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+      <meta name="creator_id" content="{{Session::get('id')}}">
       <input type='hidden' value="{{Session::get('name')}} {{Session::get('surname')}}" id='name_surname'></input>
       <input type='hidden' value="{{Session::get('profile_pic')}}" id='pic'></input>
       <input type='hidden' value="{{Session::get('email')}}" id='email'></input>
@@ -85,16 +87,6 @@
         </header>
         <main>
             <h2 class="mobile riepilogo">Riepilogo contenuti:</h2>
-            <!--?php
-                $connection = mysqli_connect($mydb_connect['server'], $mydb_connect['user'], $mydb_connect['psw'], $mydb_connect['db']) or die(mysqli_connect_error);
-                $query = "SELECT titolo, immagine, descrizione FROM video where creator =".$_SESSION['hash'].";";
-                $res = mysqli_query($connection, $query);
-                while($row = mysqli_fetch_object($res)){
-                    echo "<div class='row'> <img src='".$row->immagine."'>";
-                    echo "<div><h2>".$row->titolo."</h2>";
-                    echo "<p>".$row->descrizione."</p></div></div>";
-                }
-            ?-->
         </main>
     </body>
 </html>

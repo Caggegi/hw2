@@ -166,7 +166,7 @@ function create_card(sezione, elemento, preferiti){
     info.dataset.codice = elemento.id;
     info.dataset.tipo = elemento.tipo;
     linker.appendChild(immagine);
-    linker.href = "video_content.php?id="+elemento.id+"&src="+elemento.src;
+    linker.href = "content/"+elemento.id+"/"+elemento.src;
     linker.classList.add("linker");
     carta.appendChild(linker);
     info.classList.add("info");
@@ -200,42 +200,42 @@ function onText(promise){
 let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 function aggiungiPreferiti(event){
-    fetch("myFavourites", {
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json, text-plain, */*",
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRF-TOKEN": token
-        },
-        mode: 'no-cors',
-        method:'POST',
-        body: JSON.stringify({
-                    azione: 'aggiungi',
-                    video_id: event.currentTarget.dataset.codice
-                })
-        }).then(onText, onServerError);
+  fetch('myFavourites', {
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text-plain, */*",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-TOKEN": token,
+        'Content-type': 'application/x-www-form-urlencoded'
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      azione: 'aggiungi',
+      video_id: event.currentTarget.dataset.codice
+    })
+  }).then(onText, onServerError);
     showHome();
 }
 
 
 function rimuoviPreferiti(event){
-    fetch("myFavourites", {
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json, text-plain, */*",
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRF-TOKEN": token
-        },
-        mode: 'no-cors',
-        method:'POST',
-        body: JSON.stringify({
-                    azione: 'rimuovi',
-                    video_id: event.currentTarget.dataset.codice
-                })
-        }).then(onText, onServerError);
+  fetch('myFavourites', {
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json, text-plain, */*",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-TOKEN": token,
+        'Content-type': 'application/x-www-form-urlencoded'
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      azione: 'rimuovi',
+      video_id: event.currentTarget.dataset.codice
+    })
+  }).then(onText, onServerError);
     showHome();
 }
 
 function onServerError(errore){
-  console.log(errore);
+  console.log(errore.text());
 }

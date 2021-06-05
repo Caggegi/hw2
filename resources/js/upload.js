@@ -3,6 +3,9 @@ const uploadB = document.querySelector("div.upload_button");
 const plus = document.querySelector("img#plus_button");
 const profile = document.querySelector("img#profile");
 
+let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+let crid = document.querySelector('meta[name="creator_id"]').getAttribute('content');
+
 closeB.addEventListener("click", cancelUpload);
 plus.addEventListener("click", startProcedureUpload);
 uploadB.addEventListener("click", doUpload);
@@ -41,9 +44,22 @@ function doUpload(){
     postVideo.append("src", up_form.src.value);
     postVideo.append("tipo", up_form.type.value);
 
-    fetch("php/video_poster.php", {
-        method:'post',
-        body: postVideo
+    fetch('uploadVideo', {
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": token,
+          'Content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        titolo: up_form.titolo.value,
+        copertina: up_form.copertina.value,
+        descrizione: description,
+        src: up_form.src.value,
+        tipo: up_form.type.value,
+      })
     }).then(onJsonResponse).then(onUploadJson);
 
 }
@@ -105,14 +121,20 @@ function saveIconMenu(){
     document.querySelector("body").classList.remove("no-scroll");
 
     //mando i cambiamenti al database
-    const formdata = new FormData();
-    formdata.append("nome", Nome_Cognome);
-    formdata.append("email", Email);
-    formdata.append("image", PPic);
-
-    fetch("php/accountDetails.php", {
-        method:'post',
-        body: formdata
+    fetch('accountSettings', {
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json, text-plain, */*",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-TOKEN": token,
+          'Content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        nome: Nome_Cognome,
+        email: Email,
+        image: PPic
+      })
     }).then(OnSaveResponse).then(onSaveJson);
 }
 
@@ -135,7 +157,7 @@ function reloadPicCategories(event){
 
 function showUnsplashed(category){
     document.querySelector("div.icon_menu div.m_body div.pick").innerHTML = "";
-    fetch("php/unsplash_caller.php?categoria="+category).then(onJsonResponse).then(unsplashJson);
+    fetch("../public/image_palette/"+category).then(onJsonResponse).then(unsplashJson);
 }
 
 function unsplashJson(json){
@@ -164,4 +186,26 @@ function append_candidate(src){
     image.classList.add("desktop");
     image.addEventListener("click",changeCurrentPic);
     section.appendChild(image);
+}
+
+fetch("video/of/"+crid).then(onJsonResponse).then(attachPublished);
+
+function attachPublished(json){
+  const main = document.querySelector("main");
+  for(video of json){
+    const row = document.createElement("div");
+    row.classList.add('row');
+    const image = document.createElement("img");
+    image.src=video.immagine;
+    const oth = document.createElement("div");
+    const title = document.createElement("h2");
+    const desc = document.createElement("p");
+    title.textContent = video.titolo;
+    desc.textContent = video.descrizione;
+    oth.appendChild(title);
+    oth.appendChild(desc);
+    row.appendChild(image);
+    row.appendChild(oth);
+    main.appendChild(row);
+  }
 }

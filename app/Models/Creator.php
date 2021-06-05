@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Support\UserCollection;
 
 class Creator extends Authenticatable
 {
@@ -48,12 +49,12 @@ class Creator extends Authenticatable
       return $this->hasMany("Video");
     }
 
-    public function premiums(){
-      return $this->hasMany("Premium");
+    public function subscriptions(){
+      return $this->hasMany("App\Models\Premium");
     }
 
-    public function follows(){
-      return $this->hasMany("Follow");
+    public function followers(){
+      return $this->hasMany("App\Models\Follower");
     }
 
 }

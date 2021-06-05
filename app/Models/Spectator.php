@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Support\UserCollection;
 
 class Spectator extends Authenticatable
 {
@@ -45,11 +46,11 @@ class Spectator extends Authenticatable
     ];
 
     public function premium(){
-      return $this->hasOne("Premium");
+      return $this->hasOne("App\Models\Premium");
     }
 
-    public function follows(){
-      return $this->hasMany("Follow");
+    public function followers(){
+      return $this->hasMany("App\Models\Follower");
     }
 
 }

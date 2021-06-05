@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Support\UserCollection;
 
-class Follower extends Model{
+class Subscription extends Model{
 
-  public function spectator(){
-    return $this->belongsTo("App\Models\Spectator", 'spectator');
+  public function premiums(){
+    return $this->belongsTo("App\Models\Premium", 'premium');
   }
 
-  public function creator(){
+  public function creators(){
     return $this->belongsTo("App\Models\Creator", 'creator');
   }
 

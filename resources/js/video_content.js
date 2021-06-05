@@ -1,58 +1,88 @@
-document.querySelector("div#sub_buttons div#subscribe").addEventListener("click", onSubscribe);
-document.querySelector("div#sub_buttons div#support").addEventListener("click", onSupport);
+document.querySelector("div#common").addEventListener("click", onSubPressed);
+document.querySelector("div#premium").addEventListener("click", onSupPressed);
+let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-function onSubscribe(event){
+function onSubPressed(event){
+  if(!event.currentTarget.classList.contains("no-session")){
     if(event.currentTarget.classList.contains("subscribe")){
-        event.currentTarget.classList.remove("subscribe");
-        event.currentTarget.classList.add("subscribed");
-        event.currentTarget.querySelector("p").textContent = "iscritto";
-        const action = new FormData();
-        action.append("action", "subscribe");
-        action.append('tipo', 'segue');
-        action.append("creator", event.currentTarget.dataset.creator);
-        fetch("php/subscribe.php", {
-            'method': 'post',
-            'body': action
-        });
-    } else{
-        event.currentTarget.classList.remove("subscribed");
-        event.currentTarget.classList.add("subscribe");
-        event.currentTarget.querySelector("p").textContent = "iscriviti";
-        const action = new FormData();
-        action.append("action", "unsubscribe");
-        action.append('tipo', 'segue');
-        action.append("creator", event.currentTarget.dataset.creator);
-        fetch("php/subscribe.php", {
-            'method': 'post',
-            'body': action
-        });
+      event.currentTarget.classList.remove("subscribe");
+      event.currentTarget.classList.add("subscribed");
+      event.currentTarget.querySelector("p").textContent = "iscritto";
+      fetch('/hw2/public/subscribe', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token,
+            'Content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          creator: event.currentTarget.dataset.creator
+        })
+      });
+    } else if(event.currentTarget.classList.contains("subscribed")){
+      event.currentTarget.classList.remove("subscribed");
+      event.currentTarget.classList.add("subscribe");
+      event.currentTarget.querySelector("p").textContent = "iscriviti";
+      fetch('/hw2/public/unsubscribe', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token,
+            'Content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          creator: event.currentTarget.dataset.creator
+        })
+      });
     }
+  } else {
+    window.location.href = "/hw2/public/login";
+  }
 }
 
-function onSupport(event){
+function onSupPressed(event){
+  if(!event.currentTarget.classList.contains("no-session")){
     if(event.currentTarget.classList.contains("support")){
-        event.currentTarget.classList.remove("support");
-        event.currentTarget.classList.add("supporting");
-        event.currentTarget.querySelector("p").textContent = "abbonato";
-        const action = new FormData();
-        action.append("action", "subscribe");
-        action.append('tipo', 'abbonamento');
-        action.append("creator", event.currentTarget.dataset.creator);
-        fetch("php/subscribe.php", {
-            'method': 'post',
-            'body': action
-        });
-    } else{
-        event.currentTarget.classList.remove("supporting");
-        event.currentTarget.classList.add("support");
-        event.currentTarget.querySelector("p").textContent = "abbonati";
-        const action = new FormData();
-        action.append("action", "unsubscribe");
-        action.append('tipo', 'abbonamento');
-        action.append("creator", event.currentTarget.dataset.creator);
-        fetch("php/subscribe.php", {
-            'method': 'post',
-            'body': action
-        });
-    }
+      event.currentTarget.classList.remove("support");
+      event.currentTarget.classList.add("supporting");
+      event.currentTarget.querySelector("p").textContent = "abbonati";
+      fetch('/hw2/public/support', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token,
+            'Content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          creator: event.currentTarget.dataset.creator
+        })
+      });
+    } else if(event.currentTarget.classList.contains("supporting")){
+      event.currentTarget.classList.remove("supporting");
+      event.currentTarget.classList.add("support");
+      event.currentTarget.querySelector("p").textContent = "abbonato";
+      fetch('/hw2/public/unsupport', {
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json, text-plain, */*",
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": token,
+            'Content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'POST',
+        body: JSON.stringify({
+          creator: event.currentTarget.dataset.creator
+        })
+      });
+    } else if(event.currentTarget.classList.contains("not_premium"))
+      window.location.href = "/hw2/public/join_us";
+  } else {
+    window.location.href = "/hw2/public/login";
+  }
 }
