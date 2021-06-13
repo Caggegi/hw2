@@ -27,13 +27,13 @@
  - Digita i comandi nel file database.sql o eseguilo con un interprete;
  - Collegati alla pagina localhost/path/to/file/hw2/public;
 
-## Credenziali per l'accesso lato utente
+## 📺 Credenziali per l'accesso lato utente
 | username     | Password          |
 |--------------|-------------------|
 | mrossi       | Password_9        |
 | greenG       | Password_9        |
 
-## Credenziali per l'accesso lato creator
+## 🎨 Credenziali per l'accesso lato creator
 | username     | Password          |
 |--------------|-------------------|
 | Disney       | Password_9        |
