@@ -40,8 +40,6 @@
 | Pixar        | Password_9        |
 
 ## 🖼️ Screenshots
-<details>
-<summary>Mostrami gli screenshot!</summary>
 ![Screenshot1](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(150).png)
 ![Screenshot2](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(151).png)
 ![Screenshot3](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(152).png)
@@ -58,7 +56,6 @@
 ![Screenshot14](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(164).png)
 ![Screenshot15](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(165).png)
 ![Screenshot16](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(166).png)
-</details>
 
  ### 👤 Credits:
  Rosario Caggegi o46002042     
