@@ -18,15 +18,26 @@
  - Aggiunta pagina selezione abbonamenti;
  - Aggiunti video recenti e in tendenza;
  - Aggiunta interazione con il database di VideoTube.
- - Dwayne Johnson 💪
+ - <strike>Dwayne Johnson 💪</strike>
 
  ## 👷‍♀️ Istruzioni per l'esecuzione
  - Scarica o clona il progetto nella cartella htdocs di xampp;
  - Avvia il server apache e mysql;
  - Accedi al database mysql;
- - Digita i comandi nel file vt.sql o eseguilo con un interprete;
- - Modifica il file db_credentials.php inserendo il tuo username e la tua password per mysql;
- - Collegati alla pagina localhost/path/to/file/hw1.php;
+ - Digita i comandi nel file database.sql o eseguilo con un interprete;
+ - Collegati alla pagina localhost/path/to/file/hw2/public;
+
+## Credenziali per l'accesso lato utente
+| username     | Password          |
+|--------------|-------------------|
+| mrossi       | Password_9        |
+| greenG       | Password_9        |
+
+## Credenziali per l'accesso lato creator
+| username     | Password          |
+|--------------|-------------------|
+| Disney       | Password_9        |
+| Pixar        | Password_9        |
 
 ## 🖼️ Screenshots
 ![Screenshot1](https://github.com/Caggegi/HW1/blob/main/img/others/Screenshot%20(150).png)
@@ -48,6 +59,6 @@
 
  ### 👤 Credits:
  Rosario Caggegi o46002042     
- [![GitHub - hw1](https://github.com/Caggegi/mhw1/blob/master/img/Light/github.svg)](https://github.com/Caggegi/hw1)
+ [![GitHub - hw1](https://github.com/Caggegi/mhw1/blob/master/img/Light/github.svg)](https://github.com/Caggegi/hw2)
  [![Instagram](https://github.com/Caggegi/mhw1/blob/master/img/Light/instagram.svg)](https://www.instagram.com/rosario.caggegi/)
  [![Facebook](https://github.com/Caggegi/mhw1/blob/master/img/Light/facebook.svg)](https://www.facebook.com/rosario.caggegi.142/)
